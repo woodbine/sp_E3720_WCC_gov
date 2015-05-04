@@ -3,7 +3,7 @@
 import scraperwiki
 import urllib2
 from datetime import datetime
-import beautifulsoup
+from bs4 import BeautifulSoup
 
 # Set up variables
 entity_id = "E3720_WCC_gov"
