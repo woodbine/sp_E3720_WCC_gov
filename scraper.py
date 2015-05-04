@@ -33,6 +33,8 @@ for link in links:
 		soup2 = BeautifulSoup(html2)
 		block = soup2.find('span', {'class':'url'})
 		sublink = block.find('a', href=True)
+		print sublink
+		
 		fileurl = sublink['href']
 		title = sublink.encode_contents(formatter='html').replace('&nbsp;',' ') #  gets rid of erroneous &nbsp; chars
 		title = title.upper().strip()
