@@ -25,11 +25,12 @@ soup = BeautifulSoup(html)
 # find all entries with the required class
 block = soup.find('table')
 links = block.findAll('a', href=True)
-title = link.encode_contents(formatter='html').replace('&nbsp;',' ') #  gets rid of erroneous &nbsp; chars
-title = title.upper().strip()
 
 for link in links:
+	title = link.encode_contents(formatter='html').replace('&nbsp;',' ') #  gets rid of erroneous &nbsp; chars
+	title = title.upper().strip()
 	suburl = 'http://apps.warwickshire.gov.uk/' + link['href']
+	
 	if 'payments-to-suppliers' in suburl:
 		html2 = urllib2.urlopen(suburl)
 		soup2 = BeautifulSoup(html2)
