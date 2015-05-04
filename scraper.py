@@ -31,7 +31,7 @@ for link in links:
 	if 'payments-to-suppliers' in suburl:
 		html2 = urllib2.urlopen(suburl)
 		soup2 = BeautifulSoup(html2)
-		block = find('span', {'class':'url'})
+		block = soup2.find('span', {'class':'url'})
 		sublink = block.find('a', href=True)
 		fileurl = sublink['href']
 		title = sublink.encode_contents(formatter='html').replace('&nbsp;',' ') #  gets rid of erroneous &nbsp; chars
