@@ -25,6 +25,8 @@ soup = BeautifulSoup(html)
 # find all entries with the required class
 block = soup.find('table')
 links = block.findAll('a', href=True)
+title = link.encode_contents(formatter='html').replace('&nbsp;',' ') #  gets rid of erroneous &nbsp; chars
+title = title.upper().strip()
 
 for link in links:
 	suburl = 'http://apps.warwickshire.gov.uk/' + link['href']
@@ -34,10 +36,9 @@ for link in links:
 		block = soup2.find('span', {'class':'url'})
 		sublink = block.find('a', href=True)
 		print sublink
+		print title
 		
 		fileurl = sublink['href']
-		title = sublink.encode_contents(formatter='html').replace('&nbsp;',' ') #  gets rid of erroneous &nbsp; chars
-		title = title.upper().strip()
 		# create the right strings for the new filename
 		csvYr = title.split(' ')[0]
 		csvMth = title.split(' ')[1][:3]
