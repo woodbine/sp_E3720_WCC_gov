@@ -27,6 +27,7 @@ block = soup.find('table')
 links = block.findAll('a', href=True)
 
 for link in links:
+	print link
 	title = link.encode_contents(formatter='html').replace('&nbsp;',' ') #  gets rid of erroneous &nbsp; chars
 	title = title.upper().strip()
 	suburl = 'http://apps.warwickshire.gov.uk/' + link['href']
