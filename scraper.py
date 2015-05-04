@@ -29,11 +29,11 @@ links = block.findAll('a', href=True)
 for link in links:
 	suburl = 'http://apps.warwickshire.gov.uk/' + link['href']
 	if 'payments-to-suppliers' in suburl:
-	  html2 = urllib2.urlopen(suburl)
-	  soup2 = BeautifulSoup(html2)
-	  block = find('span', {'class':'url'})
-	  sublink = block.find('a', href=True)
-	  fileurl = sublink['href']
+		html2 = urllib2.urlopen(suburl)
+		soup2 = BeautifulSoup(html2)
+		block = find('span', {'class':'url'})
+		sublink = block.find('a', href=True)
+		fileurl = sublink['href']
 		title = sublink.encode_contents(formatter='html').replace('&nbsp;',' ') #  gets rid of erroneous &nbsp; chars
 		title = title.upper().strip()
 		# create the right strings for the new filename
