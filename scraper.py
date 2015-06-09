@@ -43,8 +43,8 @@ for link in links:
 		
 		fileurl = sublink['href']
 		# create the right strings for the new filename
-		csvYr = title.split(' ')[0]
-		csvMth = title.split(' ')[1][:3]
+		csvYr = title.split(' ')[-1]
+		csvMth = title.split(' ')[-2][:3]
 		csvMth = convert_mth_strings(csvMth);
 		filename = entity_id + "_" + csvYr + "_" + csvMth + ".csv"
 		todays_date = str(datetime.now())
